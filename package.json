@@ -21,10 +21,6 @@
     "url": "https://github.com/basti0001/MMM-iHaveBeenThere/issues"
   },
   "homepage": "https://github.com/basti0001/MMM-iHaveBeenThere#readme",
-  "dependencies": {
-    "@amcharts/amcharts5": "^5.8.0",
-    "@amcharts/amcharts5-geodata": "^5.1.2"
-  },
   "devDependencies": {
     "@eslint/js": "^8.56.0",
     "@stylistic/eslint-plugin": "^1.6.1",

@@ -58,24 +58,11 @@ Module.register("MMM-iHaveBeenThere", {
 
   // Define required scripts.
   getScripts () {
-    return [/*
-      this.file("node_modules/@amcharts/amcharts5/core.js"),
-      this.file("node_modules/@amcharts/amcharts5/charts.js"),
-      this.file("node_modules/@amcharts/amcharts5/maps.js"),
-      this.file("node_modules/@amcharts/amcharts5/themes/Animated.js"),
-      this.file("node_modules/@amcharts/amcharts5-geodata/worldLow.js")
-      */
-
+    return [
       "https://cdn.amcharts.com/lib/5/index.js",
       "https://cdn.amcharts.com/lib/5/map.js",
       "https://cdn.amcharts.com/lib/5/geodata/worldLow.js",
       "https://cdn.amcharts.com/lib/5/themes/Animated.js"
-      /*
-      this.file("node_modules/@amcharts/amcharts5/index.js"),
-      this.file("node_modules/@amcharts/amcharts5/map.js"),
-      this.file("node_modules/@amcharts/amcharts5/themes/Animated.js"),
-      this.file("node_modules/@amcharts/amcharts5-geodata/worldLow.js")
-      */
     ];
   },
 
@@ -234,13 +221,11 @@ Module.register("MMM-iHaveBeenThere", {
     this.updateDom();
     setTimeout(() => {
       this.drawMap();
-    }, 2000);
+    }, 2000); // delay for painting the map. 300ms needed for pi b+
   },
 
   // eslint-disable-next-line max-lines-per-function
   drawMap () {
-    const MyMapPaintDelay_ms = 100; // delay for painting the map. 300ms needed for pi b+
-
     // calc min number from away_lat and away_lon
     // later we only take as much elements as the smallest array contains in order not
     // to get a array access violation
@@ -291,6 +276,16 @@ Module.register("MMM-iHaveBeenThere", {
       y: 40
     }));
 
+
+    // chart.set("zoomControl", am5map.ZoomControl.new(root, {}));
+
+    am5map.ZoomControl.new(root, {
+      homeButtonEnabled: false,
+      panControlEnabled: false,
+      zoomControlEnabled: false
+    });
+
+
     // Add labels and controls
     cont.children.push(am5.Label.new(root, {
       centerY: am5.p50,
@@ -304,7 +299,7 @@ Module.register("MMM-iHaveBeenThere", {
 
     // Create series for background fill
     // https://www.amcharts.com/docs/v5/charts/map-chart/map-polygon-series/#Background_polygon
-    var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
+    const backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
     backgroundSeries.mapPolygons.template.setAll({
       fill: root.interfaceColors.get("alternativeBackground"),
       fillOpacity: 0,
@@ -462,8 +457,7 @@ Module.register("MMM-iHaveBeenThere", {
           color: this.config.colorPlaneLine,
           alpha: 0.4
         }
-      },
-      MyMapPaintDelay_ms
+      }
     ));
 
     // add legend to map
