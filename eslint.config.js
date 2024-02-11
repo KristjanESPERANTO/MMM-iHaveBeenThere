@@ -11,7 +11,9 @@ const config = [
         ...globals.browser,
         ...globals.node,
         Module: "readonly",
-        AmCharts: "readonly"
+        am5: "readonly",
+        am5map: "readonly",
+        am5themes_Animated: "readonly"
       }
     },
     plugins: {
@@ -33,7 +35,7 @@ const config = [
       "max-lines": "off",
       "max-lines-per-function": ["error", 100],
       "max-params": "off",
-      "max-statements": ["error", 25],
+      "max-statements": ["error", 40],
       "multiline-comment-style": "off",
       "no-await-in-loop": "off",
       "no-inline-comments": "off",
