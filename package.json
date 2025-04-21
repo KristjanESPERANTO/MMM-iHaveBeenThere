@@ -22,11 +22,6 @@
     "test": "npm run lint && npm run test:spelling",
     "test:spelling": "cspell ."
   },
-  "dependencies": {
-    "@amcharts/amcharts5": "^5.8.0",
-    "@amcharts/amcharts5-geodata": "^5.1.2",
-    "ammap3": "^3.21.15"
-  },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@stylistic/eslint-plugin": "^4.2.0",

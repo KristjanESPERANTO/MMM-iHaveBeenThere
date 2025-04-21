@@ -207,7 +207,3 @@ This should give the Pi a little space between the animations. Not a pretty good
 With a Pi 3 I had a load of 40% when the animation is running. Dualcore pays off. Also the animation is smooth.
 
 Testing the animation with a Pi 4 resulted in smooth animation. The CPU load was approximately 43%, so be aware that this may conflict with other modules that have high CPU demands.
-
-## To Do
-
-Upgrade from amCharts 3 to amCharts 5: The new version is supposed to be a lot more CPU-efficient, so this could possibly solve the performance problems. You are welcome to create a PR.
